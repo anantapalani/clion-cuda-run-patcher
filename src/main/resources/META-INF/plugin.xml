@@ -17,12 +17,13 @@
     <code>path/to/cmake-build-[configuration]/[target]</code><br>
     on run/debug.</p>
 
-    <p>Note that <code>OUTPUT_NAME</code> CMake target property is not supported by this plugin.</p>
+    <p>CMake <code>OUTPUT_NAME</code> target property is correctly supported as of v1.1.</p>
     ]]></description>
 
     <depends>com.intellij.modules.clion</depends>
 
-    <extensions defaultExtensionNs="clion">
-        <runConfigurationExtension implementation="CudaCLionRunConfigurationExtension"></runConfigurationExtension>
+    <extensions defaultExtensionNs="com.intellij">
+        <configurationType implementation="CMakeRunPatcherAppRunConfigurationType"/>
+        <runConfigurationProducer implementation="CMakeRunPatcherTargetRunConfigurationProducer"/>
     </extensions>
 </idea-plugin>

@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.palani.clion'
-version '1.0'
+version '1.1'
 
 sourceCompatibility = 1.8
 
@@ -24,7 +24,13 @@ intellij {
 patchPluginXml {
     changeNotes """
       <em>1.0</am><br>
-      Initial release"""
+      Initial release<br>
+      <br>
+      <em>1.1</am><br>
+      Major refactor to patch executable name at a lower level to support both Run and Debug modes.<br>
+      <ul>
+      <li>Fixes Debug mode of running executables</li>
+      <li>Adds support for CMake OUTPUT_NAME target property</li>"""
 
     sinceBuild '181'
 }

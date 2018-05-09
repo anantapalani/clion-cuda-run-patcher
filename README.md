@@ -11,4 +11,4 @@ to
 `path/to/cmake-build-[configuration]/[target]`  
 on run/debug.
 
-Note that `OUTPUT_NAME` CMake target property is not supported by this plugin.
+CMake `OUTPUT_NAME` target property is correctly supported by this plugin as of v1.1.
