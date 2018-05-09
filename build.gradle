@@ -27,10 +27,11 @@ patchPluginXml {
       Initial release<br>
       <br>
       <em>1.1</am><br>
-      Major refactor to patch executable name at a lower level to support both Run and Debug modes.<br>
+      Major refactor to patch executable name at a lower level to support both Run and Debug modes.
       <ul>
       <li>Fixes Debug mode of running executables</li>
-      <li>Adds support for CMake OUTPUT_NAME target property</li>"""
+      <li>Adds support for CMake OUTPUT_NAME target property</li>
+      </ul>"""
 
     sinceBuild '181'
 }
