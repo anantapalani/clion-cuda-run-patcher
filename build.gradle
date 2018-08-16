@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.palani.clion'
-version '1.1'
+version '1.1.1'
 
 sourceCompatibility = 1.8
 
@@ -18,20 +18,31 @@ dependencies {
 }
 
 intellij {
-    version '2018.1'
+    version '2018.2'
     alternativeIdePath clionHome
+    pluginName 'cuda-run-patcher'
 }
+
 patchPluginXml {
     changeNotes """
-      <em>1.0</am><br>
+      <em>1.0.0</am><br>
       Initial release<br>
       <br>
-      <em>1.1</am><br>
+      <em>1.1.0</am><br>
       Major refactor to patch executable name at a lower level to support both Run and Debug modes.
       <ul>
       <li>Fixes Debug mode of running executables</li>
       <li>Adds support for CMake OUTPUT_NAME target property</li>
+      </ul>
+      <br>
+      <em>1.1.1</am><br>
+      Minor changes: upgraded to support 2018.2, 
+      <ul>
+      <li>Updated package paths to API of build 182</li>
+      <li>getBuildWorkingDir method of CMakeConfiguration object used to generate 
+      correct path after executable renaming instead of configurationGCMakeCommenerationDir method, 
+      which returned only the base folder.</li>
       </ul>"""
 
-    sinceBuild '181'
+    sinceBuild '182'
 }
