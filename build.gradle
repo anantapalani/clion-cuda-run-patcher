@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij' version '0.3.1'
+    id 'org.jetbrains.intellij' version '0.3.11'
 }
 
 group 'com.palani.clion'
@@ -24,25 +24,48 @@ intellij {
 }
 
 patchPluginXml {
+    sinceBuild '182'
+
     changeNotes """
-      <em>1.0.0</am><br>
-      Initial release<br>
-      <br>
-      <em>1.1.0</am><br>
+      <em>1.0.0</em><br/>
+      Initial release<br/>
+      <br/>
+      <em>1.1.0</em><br/>
       Major refactor to patch executable name at a lower level to support both Run and Debug modes.
       <ul>
       <li>Fixes Debug mode of running executables</li>
       <li>Adds support for CMake OUTPUT_NAME target property</li>
       </ul>
-      <br>
-      <em>1.1.1</am><br>
-      Minor changes: upgraded to support 2018.2, 
+      <em>1.1.1</em><br/>
+      Minor changes including support for Clion 2018.2.
       <ul>
-      <li>Updated package paths to API of build 182</li>
-      <li>getBuildWorkingDir method of CMakeConfiguration object used to generate 
-      correct path after executable renaming instead of configurationGCMakeCommenerationDir method, 
-      which returned only the base folder.</li>
-      </ul>"""
+      <li>Update package paths to API of build 182</li>
+      <li>Use getBuildWorkingDir instead of getConfigurationGenerationDir method (only base folder was returned)</li>
+      </ul>
+      """
 
-    sinceBuild '182'
+    pluginDescription """
+      This plugin provides a simple fix for <a href="https://youtrack.jetbrains.com/issue/CPP-10292">CPP-10292</a>
+      until JetBrains fixes CLion.<br/>
+      <br/>
+      When a <code>CMakeFile.txt</code> specifies CUDA as a language with <code>enable_language(CUDA)</code> or
+      <code>project(foo CUDA CXX)</code>, CLion tries to run an intermediate object file
+      <code>cmake_device_link.o</code>
+      instead of the correct target executable.<br/>
+      <br/>
+      This plugin changes incorrect executable path<br/>
+      <code>path/to/cmake-build-[configuration]/CMakeFiles/[project].dir/cmake_device_link.o</code><br/>
+      to<br/>
+      <code>path/to/cmake-build-[configuration]/[target]</code><br/>
+      on run/debug.<br/>
+      <br/>
+      CMake <code>OUTPUT_NAME</code> target property is correctly supported as of v1.1.0.<br/>
+      <br/>
+      <strong>Contributors</strong>
+      <br/>
+      <ul>
+      <li><a href="https://github.com/anantapalani/">Ananta Palani</a></li>
+      <li><a href="https://github.com/Algomorph/">Algomorph</a> (Gregory Kramida)</li>
+      </ul>
+      """
 }
