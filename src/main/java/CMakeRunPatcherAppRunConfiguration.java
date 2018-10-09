@@ -3,8 +3,8 @@ import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.*;
+import com.jetbrains.cmake.psi.*;
 import com.jetbrains.cidr.cpp.cmake.model.*;
-import com.jetbrains.cidr.cpp.cmake.psi.*;
 import com.jetbrains.cidr.cpp.cmake.workspace.CMakeWorkspace;
 import com.jetbrains.cidr.cpp.execution.CMakeAppRunConfiguration;
 import com.jetbrains.cidr.cpp.execution.CMakeBuildProfileExecutionTarget;
@@ -148,8 +148,7 @@ public class CMakeRunPatcherAppRunConfiguration extends CMakeAppRunConfiguration
                         outputName = getOutputNameForTarget(configuration.getTarget());
                     }
 
-                    // NOTE: if configurationGenerationDir is incorrect might need to use buildWorkingDir
-                    String correctedExePathString = configuration.getConfigurationGenerationDir().toString() + File.separator + outputName;
+                    String correctedExePathString = configuration.getBuildWorkingDir().toString() + File.separator + outputName;
                     patchedExecutableFile = new File(correctedExePathString);
                 }
             }
@@ -187,8 +186,7 @@ public class CMakeRunPatcherAppRunConfiguration extends CMakeAppRunConfiguration
             outputName = targetName;
 
             if (psiManager != null && workspace != null) {
-                workspace.getCMakeFiles();
-                for (File file : workspace.getCMakeFiles()) {
+                for (File file : workspace.getCMakeDependencyFiles()) {
                     if (file.toString().endsWith("CMakeLists.txt")) {
                         VirtualFile virtualFile = LocalFileFinder.findFile(file.toString());
 
