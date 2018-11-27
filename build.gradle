@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.palani.clion'
-version '1.1.1'
+version '1.1.2'
 
 sourceCompatibility = 1.8
 
@@ -18,13 +18,13 @@ dependencies {
 }
 
 intellij {
-    version '2018.2'
+    version '2018.3'
     alternativeIdePath clionHome
     pluginName 'cuda-run-patcher'
 }
 
 patchPluginXml {
-    sinceBuild '182'
+    sinceBuild '183'
 
     changeNotes """
       <em>1.0.0</em><br/>
@@ -42,6 +42,8 @@ patchPluginXml {
       <li>Update package paths to API of build 182</li>
       <li>Use getBuildWorkingDir instead of getConfigurationGenerationDir method (only base folder was returned)</li>
       </ul>
+      <em>1.1.2</em><br/>
+      Minor changes including support for Clion 2018.3.
       """
 
     pluginDescription """
@@ -65,7 +67,7 @@ patchPluginXml {
       <br/>
       <ul>
       <li><a href="https://github.com/anantapalani/">Ananta Palani</a></li>
-      <li><a href="https://github.com/Algomorph/">Algomorph</a> (Gregory Kramida)</li>
+      <li><a href="https://github.com/Algomorph/">Gregory Kramida</a> (Algomorph)</li>
       </ul>
       """
 }

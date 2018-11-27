@@ -16,8 +16,9 @@ CMake `OUTPUT_NAME` target property is correctly supported by this plugin as of 
 To install/update within CLion using the JetBrains plugin repository:
 1. go to `File`->`Settings` menu
 1. click `Plugins` on the left
-1. click the `Browse repositories...` button at the bottom
-1. type `CUDA` in the search text field at the top
+1. click `Marketplace` on the top-right
+1. click in the `Search plugins in marketplace` field at the top-right
+1. type `CUDA` in the search field
 1. select `CLion CUDA Run Patcher`
 1. click `Install` or `Update`
 1. accept the third-party warning
