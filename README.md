@@ -26,6 +26,6 @@ To install within CLion using the JetBrains plugin repository:
 1. click `Restart IDE` button
 1. click `Restart` when prompted
 
-###Troubleshooting
+### Troubleshooting
 
 If you still get an error that CLion cannot run `cmake_device_link.o`, close the project and open it again.
