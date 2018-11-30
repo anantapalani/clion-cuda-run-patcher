@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.palani.clion'
-version '1.1.2'
+version '1.2.0'
 
 sourceCompatibility = 1.8
 
@@ -43,7 +43,17 @@ patchPluginXml {
       <li>Use getBuildWorkingDir instead of getConfigurationGenerationDir method (only base folder was returned)</li>
       </ul>
       <em>1.1.2</em><br/>
-      Minor changes including support for Clion 2018.3.
+      Minor changes including support for Clion 2018.3.<br/>
+      <br/>
+      <em>1.2.0</em><br/>
+      Add support for additional run configurations and minor code clean-up.
+      <ul>
+      <li>Add support for Boost Test (Boost.Test), Catch Test (Catch), and Google Test</li>
+      <li>Fix scope of CMakeRunPatcherAppRunConfigurationType constructor</li>
+      <li>Switch to lazy-loading of icon in CMakeRunPatcherAppRunConfigurationType constructor</li>
+      <li>Remove unnecessary @Overrides in CMakeRunPatcherAppRunConfigurationType</li>
+      <li>Add missing getHelpTopic() to CMakeRunPatcherAppRunConfigurationType</li>
+      </ul>
       """
 
     pluginDescription """
@@ -62,6 +72,7 @@ patchPluginXml {
       on run/debug.<br/>
       <br/>
       CMake <code>OUTPUT_NAME</code> target property is correctly supported as of v1.1.0.<br/>
+      Boost Test (Boost.Test), Catch Test (Catch), and Google Test run configurations supported as of v1.2.0.<br/>
       <br/>
       <strong>Contributors</strong>
       <br/>

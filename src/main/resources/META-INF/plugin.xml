@@ -5,6 +5,12 @@
     <depends>com.intellij.modules.clion</depends>
     <extensions defaultExtensionNs="com.intellij">
         <configurationType implementation="CMakeRunPatcherAppRunConfigurationType"/>
+        <configurationType implementation="CMakeRunPatcherBoostTestRunConfigurationType"/>
+        <configurationType implementation="CMakeRunPatcherCatchTestRunConfigurationType"/>
+        <configurationType implementation="CMakeRunPatcherGoogleTestRunConfigurationType"/>
+        <runConfigurationProducer implementation="CMakeRunPatcherBoostTestRunConfigurationProducer"/>
+        <runConfigurationProducer implementation="CMakeRunPatcherCatchTestRunConfigurationProducer"/>
+        <runConfigurationProducer implementation="CMakeRunPatcherGoogleTestRunConfigurationProducer"/>
         <runConfigurationProducer implementation="CMakeRunPatcherTargetRunConfigurationProducer"/>
     </extensions>
 </idea-plugin>
