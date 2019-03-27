@@ -38,13 +38,13 @@ patchPluginXml {
       <li>Adds support for CMake OUTPUT_NAME target property</li>
       </ul>
       <em>1.1.1</em><br/>
-      Minor changes including support for Clion 2018.2.
+      Minor changes including support for CLion 2018.2.
       <ul>
       <li>Update package paths to API of build 182</li>
       <li>Use getBuildWorkingDir instead of getConfigurationGenerationDir method (only base folder was returned)</li>
       </ul>
       <em>1.1.2</em><br/>
-      Minor changes including support for Clion 2018.3.<br/>
+      Minor changes including support for CLion 2018.3.<br/>
       <br/>
       <em>1.2.0</em><br/>
       Add support for additional run configurations and minor code clean-up.
@@ -56,7 +56,7 @@ patchPluginXml {
       <li>Add missing getHelpTopic() to CMakeRunPatcherAppRunConfigurationType</li>
       </ul>
       <em>1.2.1</em><br/>
-      Minor changes to support Clion 2019.1.
+      Minor changes to support CLion 2019.1.
       """
 
     pluginDescription """
