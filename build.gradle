@@ -1,10 +1,10 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij' version '0.3.11'
+    id 'org.jetbrains.intellij' version '0.4.7'
 }
 
 group 'com.palani.clion'
-version '1.2.0'
+version '1.2.1'
 
 sourceCompatibility = 1.8
 
@@ -18,13 +18,14 @@ dependencies {
 }
 
 intellij {
-    version '2018.3'
+    version '2019.1'
+    type 'CL'
     alternativeIdePath clionHome
     pluginName 'cuda-run-patcher'
 }
 
 patchPluginXml {
-    sinceBuild '183'
+    sinceBuild '191'
 
     changeNotes """
       <em>1.0.0</em><br/>
@@ -54,6 +55,8 @@ patchPluginXml {
       <li>Remove unnecessary @Overrides in CMakeRunPatcherAppRunConfigurationType</li>
       <li>Add missing getHelpTopic() to CMakeRunPatcherAppRunConfigurationType</li>
       </ul>
+      <em>1.2.1</em><br/>
+      Minor changes to support Clion 2019.1.
       """
 
     pluginDescription """
