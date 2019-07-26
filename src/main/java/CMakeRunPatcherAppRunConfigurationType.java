@@ -4,7 +4,7 @@ import com.intellij.icons.AllIcons;
 import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.NotNullLazyValue;
-import com.jetbrains.cidr.CidrBundle;
+import com.jetbrains.cidr.cpp.CPPBundle;
 import com.jetbrains.cidr.cpp.execution.CMakeAppRunConfiguration;
 import com.jetbrains.cidr.cpp.execution.CMakeAppRunConfigurationSettingsEditor;
 import com.jetbrains.cidr.cpp.execution.CMakeRunConfigurationType;
@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class CMakeRunPatcherAppRunConfigurationType extends CMakeRunConfigurationType {
     public CMakeRunPatcherAppRunConfigurationType() {
-        super("CMakeRunConfiguration", "Application", CidrBundle.message("run.configuration.name", new Object[0]), CidrBundle.message("run.configuration.description", new Object[0]), NotNullLazyValue.createValue(() -> AllIcons.RunConfigurations.Application));
+        super("CMakeRunConfiguration", "Application", CPPBundle.message("cmake.run.configuration.display.name", new Object[0]), CPPBundle.message("cmake.run.configuration.description", new Object[0]), NotNullLazyValue.createValue(() -> AllIcons.RunConfigurations.Application));
     }
 
     @NotNull

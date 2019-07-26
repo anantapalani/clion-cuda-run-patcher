@@ -71,6 +71,7 @@ public class CMakeRunPatcherAppRunConfiguration extends CMakeAppRunConfiguration
     }
 
     @Nullable
+    @SuppressWarnings("unchecked")
     private CMakeConfiguration patchConfiguration(@Nullable final CMakeConfiguration configuration) {
         CMakeConfiguration patchedConfiguration = null;
 

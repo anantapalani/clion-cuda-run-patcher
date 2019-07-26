@@ -28,6 +28,7 @@ public class CMakeRunPatcherBoostTestRunConfigurationType extends CMakeRunConfig
 
     @NotNull
     @Contract("_ -> new")
+    @SuppressWarnings("unchecked")
     public SettingsEditor<? extends CMakeAppRunConfiguration> createEditor(@NotNull Project project) {
         return new CidrBoostTestRunConfigurationEditor(project, CMakeRunConfigurationType.getHelper(project));
     }

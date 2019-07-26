@@ -1,10 +1,10 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij' version '0.4.7'
+    id 'org.jetbrains.intellij' version '0.4.9'
 }
 
 group 'com.palani.clion'
-version '1.2.1'
+version '1.2.2'
 
 sourceCompatibility = 1.8
 
@@ -17,15 +17,20 @@ dependencies {
     compileOnly files("${clionHome}/lib/clion.jar")
 }
 
+tasks.withType(JavaCompile) {
+    options.compilerArgs << '-Xlint:unchecked'
+    options.deprecation = true
+}
+
 intellij {
-    version '2019.1'
+    version '2019.2'
     type 'CL'
     alternativeIdePath clionHome
     pluginName 'cuda-run-patcher'
 }
 
 patchPluginXml {
-    sinceBuild '191'
+    sinceBuild '192'
 
     changeNotes """
       <em>1.0.0</em><br/>
@@ -56,7 +61,14 @@ patchPluginXml {
       <li>Add missing getHelpTopic() to CMakeRunPatcherAppRunConfigurationType</li>
       </ul>
       <em>1.2.1</em><br/>
-      Minor changes to support CLion 2019.1.
+      Minor changes to support CLion 2019.1.<br/>
+      <br/>
+      <em>1.2.2</em><br/>
+      Minor changes to support CLion 2019.2.
+      <ul>
+      <li>Change from com.jetbrains.cidr.CidrBundle to com.jetbrains.cidr.cpp.CPPBundle in CMakeRunPatcherAppRunConfigurationType</li>
+      <li>Fix deprecated function calls in CMakeRunPatcher*ConfigurationProducer</li>
+      </ul>
       """
 
     pluginDescription """

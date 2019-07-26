@@ -28,6 +28,7 @@ public class CMakeRunPatcherGoogleTestRunConfigurationType extends CMakeRunConfi
 
     @NotNull
     @Contract("_ -> new")
+    @SuppressWarnings("unchecked")
     public SettingsEditor<? extends CMakeAppRunConfiguration> createEditor(@NotNull Project project) {
         return new CidrGoogleTestRunConfigurationEditor(project, CMakeRunConfigurationType.getHelper(project));
     }

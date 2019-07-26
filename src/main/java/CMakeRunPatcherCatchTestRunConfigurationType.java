@@ -28,6 +28,7 @@ public class CMakeRunPatcherCatchTestRunConfigurationType extends CMakeRunConfig
 
     @NotNull
     @Contract("_ -> new")
+    @SuppressWarnings("unchecked")
     public SettingsEditor<? extends CMakeAppRunConfiguration> createEditor(@NotNull Project project) {
         return new CidrCatchTestRunConfigurationEditor(project, CMakeRunConfigurationType.getHelper(project));
     }
