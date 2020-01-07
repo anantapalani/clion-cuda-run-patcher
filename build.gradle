@@ -1,10 +1,10 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij' version '0.4.9'
+    id 'org.jetbrains.intellij' version '0.4.15'
 }
 
 group 'com.palani.clion'
-version '1.2.2'
+version '1.3.0'
 
 sourceCompatibility = 1.8
 
@@ -15,6 +15,12 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compileOnly files("${clionHome}/lib/clion.jar")
+    compileOnly files("${clionHome}/plugins/clion-test-boost/lib/cidr-test-boost.jar")
+    compileOnly files("${clionHome}/plugins/clion-test-boost/lib/clion-test-boost.jar")
+    compileOnly files("${clionHome}/plugins/clion-test-catch/lib/cidr-test-catch.jar")
+    compileOnly files("${clionHome}/plugins/clion-test-catch/lib/clion-test-catch.jar")
+    compileOnly files("${clionHome}/plugins/clion-test-google/lib/cidr-test-google.jar")
+    compileOnly files("${clionHome}/plugins/clion-test-google/lib/clion-test-google.jar")
 }
 
 tasks.withType(JavaCompile) {
@@ -23,14 +29,14 @@ tasks.withType(JavaCompile) {
 }
 
 intellij {
-    version '2019.2'
+    version '2019.3'
     type 'CL'
     alternativeIdePath clionHome
     pluginName 'cuda-run-patcher'
 }
 
 patchPluginXml {
-    sinceBuild '192'
+    sinceBuild '193'
 
     changeNotes """
       <em>1.0.0</em><br/>
@@ -68,6 +74,13 @@ patchPluginXml {
       <ul>
       <li>Change from com.jetbrains.cidr.CidrBundle to com.jetbrains.cidr.cpp.CPPBundle in CMakeRunPatcherAppRunConfigurationType</li>
       <li>Fix deprecated function calls in CMakeRunPatcher*ConfigurationProducer</li>
+      </ul>
+      <em>1.3.0</em><br/>
+      Changes to support CLion 2019.3. Boost Test (Boost.Test), Catch Test (Catch), and Google Test are now Plugins in CLion and have been specified as dependencies so that CLion Cuda Run Patcher will be loaded afterwards to ensure paths can be patched correctly.
+      <ul>
+      <li>Added Boost Test (Boost.Test), Catch Test (Catch), and Google Test plugins as dependencies and updated imports/paths</li>
+      <li>Update new CMakeConfiguration() call in CMakeRunPatcherAppRunConfiguration</li>
+      <li>Make imports explicit and change return type for getState() from CidrCommandLineState to CommandLineState in CMakeRunPatcherTestRunConfiguration</li>
       </ul>
       """
 

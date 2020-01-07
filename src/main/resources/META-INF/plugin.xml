@@ -3,6 +3,9 @@
     <name>CLion CUDA Run Patcher</name>
     <vendor email="anantapalani@gmail.com" url="https://github.com/anantapalani">Ananta Palani</vendor>
     <depends>com.intellij.modules.clion</depends>
+    <depends>org.jetbrains.plugins.clion.test.boost</depends>
+    <depends>org.jetbrains.plugins.clion.test.catch</depends>
+    <depends>org.jetbrains.plugins.clion.test.google</depends>
     <extensions defaultExtensionNs="com.intellij">
         <configurationType implementation="CMakeRunPatcherAppRunConfigurationType"/>
         <configurationType implementation="CMakeRunPatcherBoostTestRunConfigurationType"/>

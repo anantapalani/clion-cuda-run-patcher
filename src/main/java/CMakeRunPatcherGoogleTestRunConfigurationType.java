@@ -3,13 +3,13 @@ import com.intellij.execution.configurations.ConfigurationTypeUtil;
 import com.intellij.openapi.options.SettingsEditor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.NotNullLazyValue;
-import com.jetbrains.cidr.CidrBundle;
 import com.jetbrains.cidr.cpp.execution.CMakeAppRunConfiguration;
 import com.jetbrains.cidr.cpp.execution.CMakeRunConfigurationType;
 import com.jetbrains.cidr.execution.testing.CidrBeforeTestRunTaskProvider;
+import com.jetbrains.cidr.execution.testing.google.CidrGoogleBundle;
 import com.jetbrains.cidr.execution.testing.google.CidrGoogleTestRunConfigurationData;
 import com.jetbrains.cidr.execution.testing.google.CidrGoogleTestRunConfigurationEditor;
-import icons.CidrLangIcons;
+import icons.CidrGoogleIcons;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -17,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class CMakeRunPatcherGoogleTestRunConfigurationType extends CMakeRunConfigurationType implements CidrBeforeTestRunTaskProvider.CidrBeforeRunTaskConverter {
     protected CMakeRunPatcherGoogleTestRunConfigurationType() {
-        super("CMakeGoogleTestRunConfigurationType", "Google Test", CidrBundle.message("gtest.test.configuration.name", new Object[0]), CidrBundle.message("gtest.test.configuration.description", new Object[0]), NotNullLazyValue.createValue(() -> CidrLangIcons.GoogleTest));
+        super("CMakeGoogleTestRunConfigurationType", "Google Test", CidrGoogleBundle.message("gtest.test.configuration.name", new Object[0]), CidrGoogleBundle.message("gtest.test.configuration.description", new Object[0]), NotNullLazyValue.createValue(() -> CidrGoogleIcons.GoogleTest));
     }
 
     @NotNull

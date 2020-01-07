@@ -1,4 +1,5 @@
 import com.intellij.execution.Executor;
+import com.intellij.execution.configurations.CommandLineState;
 import com.intellij.execution.configurations.ConfigurationFactory;
 import com.intellij.execution.configurations.RunConfiguration;
 import com.intellij.execution.configurations.RuntimeConfigurationException;
@@ -8,8 +9,11 @@ import com.intellij.openapi.util.InvalidDataException;
 import com.intellij.openapi.util.WriteExternalException;
 import com.intellij.util.Function;
 import com.jetbrains.cidr.cpp.execution.testing.CMakeTestLauncher;
-import com.jetbrains.cidr.execution.CidrCommandLineState;
-import com.jetbrains.cidr.execution.testing.*;
+import com.jetbrains.cidr.execution.testing.CidrLauncher;
+import com.jetbrains.cidr.execution.testing.CidrRerunFailedTestsAction;
+import com.jetbrains.cidr.execution.testing.CidrTestRunConfiguration;
+import com.jetbrains.cidr.execution.testing.CidrTestRunConfigurationData;
+import com.jetbrains.cidr.execution.testing.CidrTestScope;
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 
@@ -27,7 +31,7 @@ public class CMakeRunPatcherTestRunConfiguration extends CMakeRunPatcherAppRunCo
         return this.myTestData;
     }
 
-    public CidrCommandLineState getState(@NotNull Executor executor, @NotNull ExecutionEnvironment env) {
+    public CommandLineState getState(@NotNull Executor executor, @NotNull ExecutionEnvironment env) {
         return this.createState(env, executor, null);
     }
 

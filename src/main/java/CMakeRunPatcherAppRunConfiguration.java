@@ -102,7 +102,8 @@ public class CMakeRunPatcherAppRunConfiguration extends CMakeAppRunConfiguration
                         sourcesMap,
                         productFile,
                         configuration.getBuildWorkingDir(),
-                        configuration.getTargetType()
+                        configuration.getTargetType(),
+                        configuration.getGenerator()
                 );
 
                 method = patchedConfiguration.getClass().getDeclaredMethod("initTarget", CMakeTarget.class);
